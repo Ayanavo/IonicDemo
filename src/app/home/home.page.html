@@ -1,20 +1,64 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+
+        <ion-searchbar animated="true" placeholder="Search movies" (ionInput)="onSearch($event.detail.value)"></ion-searchbar>
+
+        <ion-buttons slot="end">
+            <ion-button>
+                <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <!-- Header with Condensed Title -->
+    <ion-header collapse="condense">
+        <ion-toolbar>
+            <ion-title size="large">Movies</ion-title>
+        </ion-toolbar>
+    </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <!-- Movie List -->
+    <ion-list>
+        <!-- Check if there are movies -->
+        @for (item of filteredMovies; track $index) {
+        <ion-item>
+            <!-- Movie Thumbnail -->
+            <ion-avatar slot="start">
+                <ion-img [src]="item.poster_path" alt="Movie Avatar" (ionImgWillLoad)="handleImageError($event)" (ionError)="handleImageError($event)"></ion-img>
+            </ion-avatar>
+
+            <!-- Movie Details -->
+            <ion-label>
+                <h3 class="font-bold text-base">{{ item.original_title }}</h3>
+                <p class="text-sm text-gray-500">{{ item.release_date }}</p>
+
+                <div class="flex items-center space-x-2 mt-1">
+                    <ion-icon name="star" color="warning"></ion-icon>
+                    <span class="text-sm">{{ item.vote_average }}</span>
+                </div>
+            </ion-label>
+
+            <!-- Action Icon -->
+            <ion-icon slot="end" name="alert-circle-outline" class="cursor-pointer text-xl" (click)="openModal(item)"></ion-icon>
+        </ion-item>
+        } @empty {
+        <!-- No Movies Found -->
+        <ion-item lines="none">
+            <ion-label class="ion-text-center text-gray-500"> No movies found. </ion-label>
+        </ion-item>
+        }
+    </ion-list>
+
+    <!-- Infinite Scroll -->
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="onIonInfinite($event)">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more movies..."></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+    <!-- Loading Indicator -->
+    <ion-loading [isOpen]="loading" message="Loading more movies..." spinner="crescent"></ion-loading>
 </ion-content>
