@@ -21,9 +21,9 @@ import {
 } from "@ionic/angular/standalone";
 import {addIcons} from "ionicons";
 import {addOutline, alertCircleOutline, menuOutline, star} from "ionicons/icons";
+import {BehaviorSubject, debounceTime, distinctUntilChanged} from "rxjs";
 import {DetailPage} from "../detail/detail/detail.page";
 import {MovieService} from "../service/movie.service";
-import {BehaviorSubject, debounce, debounceTime, distinctUntilChanged, of} from "rxjs";
 
 @Component({
     selector: "app-home",

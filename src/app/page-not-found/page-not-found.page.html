@@ -1,0 +1,18 @@
+<ion-content [fullscreen]="true">
+    <div class="not-found-container">
+        <ion-img src="/assets/image/page_not_found.png" alt="404 Illustration" class="not-found-image"></ion-img>
+        <ion-text color="medium">
+            <h2>Oops! Page Not Found</h2>
+        </ion-text>
+        <ion-text color="medium">
+            <p>The page you're looking for doesn't exist or has been moved.</p>
+        </ion-text>
+        <div class="home-button-container">
+            <button routerLink="/home" class="custom-home-button" [ngClass]="{'pressed': isPressed}" (touchstart)="togglePressed()" (touchend)="togglePressed()">
+                <ion-ripple-effect></ion-ripple-effect>
+                <ion-icon name="home"></ion-icon>
+                <span>Go to Home</span>
+            </button>
+        </div>
+    </div>
+</ion-content>

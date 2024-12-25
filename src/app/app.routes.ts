@@ -1,5 +1,6 @@
 import {Routes} from "@angular/router";
 import {LayoutPage} from "./layout/layout.page";
+import {PageNotFoundPage} from "./page-not-found/page-not-found.page";
 
 export const routes: Routes = [
     {
@@ -24,5 +25,9 @@ export const routes: Routes = [
                 loadComponent: () => import("./layout/layout.page").then((m) => m.LayoutPage),
             },
         ],
+    },
+    {
+        path: "**",
+        component: PageNotFoundPage,
     },
 ];
