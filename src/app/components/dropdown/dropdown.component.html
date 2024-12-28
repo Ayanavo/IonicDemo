@@ -1,0 +1,8 @@
+<div [formGroup]="fromGroup">
+    <!-- <ion-input [label]="ControlAccess['label']" label-placement="floating" fill="outline" type="password" [formControlName]="ControlAccess['identifier']" ngDefaultControl errorText="Email is required."></ion-input> -->
+    <ion-select [label]="ControlAccess['label']" label-placement="floating" interface="popover" fill="outline" ngDefaultControl [formControlName]="ControlAccess['identifier']">
+        @for (item of ControlAccess['options']; track $index) { <ion-select-option [value]="item">{{ item }}</ion-select-option
+        >}
+    </ion-select>
+    <app-error-msg [control]="ControlAccess['identifier']" [errorField]="ControlAccess['label']"></app-error-msg>
+</div>

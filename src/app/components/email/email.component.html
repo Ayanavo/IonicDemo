@@ -1,0 +1,4 @@
+<div [formGroup]="fromGroup">
+    <ion-input [label]="ControlAccess['label']" label-placement="floating" fill="outline" type="email" [formControlName]="ControlAccess['identifier']" ngDefaultControl></ion-input>
+    <app-error-msg [control]="ControlAccess['identifier']" [errorField]="ControlAccess['label']"></app-error-msg>
+</div>

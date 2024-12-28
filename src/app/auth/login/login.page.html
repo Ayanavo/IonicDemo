@@ -1,0 +1,39 @@
+<ion-content class="ion-padding">
+    <div class="login-container">
+        <div class="logo-container"></div>
+
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <app-email
+                [ControlAccess]="{identifier: 'email',label: 'Email',type:'email',placeholder: 'Email',validators: ['required']
+                }"></app-email>
+            <app-password [ControlAccess]="{identifier: 'password',label: 'Password',type:'password',validators: ['required']}"></app-password>
+            <ion-button expand="block" type="submit">Login</ion-button>
+        </form>
+
+        <div class="forgot-password">
+            <ion-button fill="clear" size="small" (click)="forgotPassword()">Forgot Password?</ion-button>
+        </div>
+
+        <div class="social-login">
+            <ion-text color="medium">
+                <h4>Or login with</h4>
+            </ion-text>
+            <div class="social-buttons">
+                <ion-button fill="clear">
+                    <ion-icon name="logo-google"></ion-icon>
+                </ion-button>
+                <ion-button fill="clear">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                </ion-button>
+                <ion-button fill="clear">
+                    <ion-icon name="logo-github"></ion-icon>
+                </ion-button>
+            </div>
+        </div>
+
+        <div class="signup-prompt">
+            <ion-text color="medium">Don't have an account?</ion-text>
+            <ion-button fill="clear" routerLink="/register">Sign Up</ion-button>
+        </div>
+    </div>
+</ion-content>

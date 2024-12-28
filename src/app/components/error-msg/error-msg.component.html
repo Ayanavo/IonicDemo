@@ -1,0 +1,17 @@
+@if ( formControl.touched && formControl.invalid ) { @if (formControl.errors?.['required']) {
+<div class="text-[#c5000f]">{{ errorField ?? "Field" }} is required!</div>
+} @if (formControl.errors?.['maxlength']) {
+<div class="text-[#c5000f]">{{ errorField ?? "Field" }} length must be atmost {{ formControl.errors?.["maxlength"]["requiredLength"] }} characters long!</div>
+} @if ( formControl.errors?.['minlength'] ) {
+<div class="text-[#c5000f]">{{ errorField ?? "Field" }} length must be atleast {{ formControl.errors?.["minlength"]["requiredLength"] }} characters long!!</div>
+} @if (formControl.errors?.['email']) {
+<div class="text-[#c5000f]">{{ errorField ?? "Email" }} pattern is invalid!</div>
+} @if (formControl.errors?.['pattern']) {
+<div class="text-[#c5000f]">{{ errorField ?? "Field" }} pattern is invalid!</div>
+} @if (formControl.errors?.['patternMatchError']) {
+<div class="text-[#c5000f]">{{ errorField ?? "Password" }} pattern did not match!</div>
+} @if (formControl.errors?.['outOfRange']) {
+<div class="text-[#c5000f]">{{ errorField ?? "Field" }} range cannot be less than its default value!</div>
+} @if (formControl.errors?.['invalidUrl']) {
+<div class="text-[#c5000f]">{{ errorField ?? "Url" }} is invalid!</div>
+} }

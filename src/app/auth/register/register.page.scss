@@ -1,0 +1,77 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.logo-container {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.app-logo {
+    max-width: 150px;
+    height: auto;
+}
+
+form {
+    width: 100%;
+}
+
+ion-item {
+    --padding-start: 0;
+    --inner-padding-end: 0;
+    margin-bottom: 1rem;
+}
+
+ion-button[type="submit"] {
+    margin-top: 1.5rem;
+}
+
+.error-message {
+    color: var(--ion-color-danger);
+    font-size: 0.8rem;
+    margin-top: 0.2rem;
+}
+
+.forgot-password {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.social-login {
+    margin-top: 2rem;
+    text-align: center;
+
+    h4 {
+        margin-bottom: 1rem;
+    }
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+    ion-button {
+        --padding-start: 0.5rem;
+        --padding-end: 0.5rem;
+
+        ion-icon {
+            font-size: 1.5rem;
+        }
+    }
+}
+
+.signup-prompt {
+    margin-top: 2rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}

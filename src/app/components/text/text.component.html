@@ -1,0 +1,4 @@
+<ion-item [formGroup]="fromGroup">
+    <ion-input [label]="ControlAccess['label']" label-placement="floating" fill="outline" type="text" [formControlName]="ControlAccess['identifier']" ngDefaultControl errorText="Email is required."></ion-input>
+    <app-error-msg [control]="ControlAccess['identifier']"></app-error-msg>
+</ion-item>

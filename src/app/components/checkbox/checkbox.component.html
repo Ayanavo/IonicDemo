@@ -1,0 +1,4 @@
+<div [formGroup]="fromGroup">
+    <ion-checkbox ngDefaultControl justify="space-between" [formControlName]="ControlAccess['identifier']">{{ ControlAccess["label"] }}</ion-checkbox>
+    <app-error-msg [control]="ControlAccess['identifier']" [errorField]="ControlAccess['label']"></app-error-msg>
+</div>

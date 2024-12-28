@@ -1,0 +1,10 @@
+<ion-content class="ion-padding">
+    <div class="login-container">
+        <form [formGroup]="loginForm" (ngSubmit)="register()">
+            <app-dropdown [ControlAccess]="{identifier: 'gender', label: 'Gender', type: 'dropdown', placeholder: 'Gender', options: ['Male', 'Female', 'Non-binary', 'Other', 'Prefer no to say'], validators: ['required']}"></app-dropdown>
+            <app-email [ControlAccess]="{identifier: 'email', label: 'Email', type: 'email', placeholder: 'Email', validators: ['required']}"></app-email>
+            <app-password [ControlAccess]="{identifier: 'password', label: 'Password', type: 'password', validators: ['required']}"></app-password>
+            <ion-button expand="block" type="submit">Register</ion-button>
+        </form>
+    </div>
+</ion-content>
